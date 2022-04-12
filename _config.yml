@@ -31,7 +31,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  lenkva
 
 # Build settings
-# theme: minima # TODO: Theme auswählen -> @annNau
+theme: jekyll-theme-slate # TODO: Theme auswählen -> @annNau
 plugins:
   - jekyll-feed
 
