@@ -14,16 +14,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout git branch
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
       # Cache gems
-      - uses: actions/cache@v3
+      - name: Cache Gems
+        uses: actions/cache@v3
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
           restore-keys: |
             ${{ runner.os }}-gems-
       # Build the site and push new state to branch gh-pages
-      - uses: helaili/jekyll-action@2.3.1    # Choose any one of the Jekyll Actions
+      - name: Build and deploy site
+        uses: helaili/jekyll-action@2.3.1    # Choose any one of the Jekyll Actions
         with:                                # Some relative inputs of your action
           keep_history: true
           token: ${{ secrets.GITHUB_TOKEN }}
